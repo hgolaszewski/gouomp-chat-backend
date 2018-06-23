@@ -1,0 +1,25 @@
+image: java:8
+
+stages:
+    - test
+    - deploy
+    
+before_script:
+    - chmod 777 gradlew
+    
+verify:
+    stage: test
+    script: 
+        - ./gradlew build
+    retry: 2
+    allow_failure: false
+
+heroku_deploy:
+    stage: deploy
+    script:
+        - git remote add heroku https://heroku:$HEROKU_API_SECRET_KEY@git.heroku.com/gouomp-production-backend.git
+        - git push -f heroku master
+    only: 
+    - master
+    allow_failure: false
+    when: on_success

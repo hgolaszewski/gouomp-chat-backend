@@ -1,0 +1,11 @@
+amazonProperties:
+  endpointUrl: https://s3.us-east-2.amazonaws.com
+  accessKey: AKIAIV3X23VCBXZK7ZGA
+  secretKey: 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
+  bucketName: gouomp-aws-file-storage
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 25MB
+      max-request-size: 25MB

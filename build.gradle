@@ -1,0 +1,58 @@
+buildscript {
+	ext {
+		springBootVersion = '2.0.1.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'checkstyle'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'pl.edu.wat'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compile(
+		'org.springframework.boot:spring-boot-starter-websocket:1.5.13.RELEASE',
+		'org.springframework.boot:spring-boot-starter-data-mongodb',
+		'org.springframework.boot:spring-boot-starter-security',
+		'org.springframework.boot:spring-boot-starter-web',
+		'org.springframework:spring-jdbc:5.0.5.RELEASE',
+		'org.junit:junit5-engine:5.0.0-ALPHA',
+		'com.amazonaws:aws-java-sdk:1.11.344',
+		'com.google.guava:guava:25.0-jre',
+		'org.projectlombok:lombok',
+		'io.jsonwebtoken:jjwt:0.7.0',
+    )
+	testCompile(
+        'org.springframework.boot:spring-boot-starter-test',
+	    'de.flapdoodle.embed:de.flapdoodle.embed.mongo'
+    )
+}
+
+checkstyle {
+    toolVersion = '7.6.1'
+    configFile = file("config/checkstyle/checkstyle.xml")
+}
+
+checkstyleMain {
+    source ='src/main/java'
+}
+
+checkstyleTest {
+    source ='src/test/java'
+}
+

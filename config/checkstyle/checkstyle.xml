@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<!DOCTYPE module PUBLIC
+        "-//Puppy Crawl//DTD Check Configuration 1.3//EN"
+        "http://www.puppycrawl.com/dtds/configuration_1_3.dtd">
+
+<module name="Checker">
+    <property name="charset" value="UTF-8"/>
+    <property name="severity" value="error"/>
+    <property name="fileExtensions" value="java"/>
+
+    <module name="TreeWalker">
+        <property name="tabWidth" value="4"/>
+        <module name="LocalVariableName"/>
+        <module name="AvoidNestedBlocks"/>
+        <module name="CovariantEquals"/>
+        <module name="DefaultComesLast"/>
+        <module name="EmptyStatement"/>
+        <module name="EqualsAvoidNull"/>
+        <module name="EqualsHashCode"/>
+        <module name="MethodParamPad"/>
+        <module name="CommentsIndentation"/>
+        <module name="EmptyCatchBlock"/>
+        <module name="IllegalType"/>
+        <module name="InterfaceIsType"/>
+        <module name="ModifiedControlVariable"/>
+        <module name="NestedForDepth"/>
+        <module name="NestedIfDepth"/>
+        <module name="NestedTryDepth"/>
+        <module name="ParenPad"/>
+        <module name="RedundantImport"/>
+        <module name="RequireThis"/>
+        <module name="SimplifyBooleanReturn"/>
+        <module name="SimplifyBooleanExpression"/>
+        <module name="SingleSpaceSeparator"/>
+        <module name="StringLiteralEquality"/>
+        <module name="TypecastParenPad"/>
+        <module name="UnusedImports"/>
+        <module name="WhitespaceAfter"/>
+        <module name="NeedBraces"/>
+        <module name="OneStatementPerLine"/>
+        <module name="ArrayTypeStyle"/>
+        <module name="ModifierOrder"/>
+        <module name="LeftCurly"/>
+        <module name="RightCurly"/>
+        <module name="MethodLength">
+            <property name="tokens" value="METHOD_DEF"/>
+            <property name="max" value="80"/>
+        </module>
+        <module name="MethodLength">
+            <property name="tokens" value="CTOR_DEF"/>
+            <property name="max" value="60"/>
+        </module>
+        <module name="LineLength">
+            <property name="max" value="120"/>
+        </module>
+        <module name="Regexp">
+            <property name="format" value="[^\t\n]\t"/>
+            <property name="illegalPattern" value="true"/>
+            <property name="ignoreComments" value="true"/>
+            <property name="message" value="Tab character outside of indention"/>
+        </module>
+        <module name="Regexp">
+            <property name="format" value="^ "/>
+            <property name="illegalPattern" value="true"/>
+            <property name="ignoreComments" value="true"/>
+            <property name="message" value="Indention starts with space"/>
+        </module>
+        <module name="WhitespaceAround">
+            <property name="allowEmptyConstructors" value="true"/>
+            <property name="allowEmptyMethods" value="true"/>
+            <property name="allowEmptyTypes" value="true"/>
+            <property name="allowEmptyLambdas" value="true"/>
+            <message key="ws.notFollowed"
+                     value="WhitespaceAround: ''{0}'' is not followed by whitespace. Empty blocks may only be represented as '{}' when not part of a multi-block statement (4.1.3)"/>
+            <message key="ws.notPreceded"
+                     value="WhitespaceAround: ''{0}'' is not preceded with whitespace."/>
+        </module>
+        <module name="SeparatorWrap">
+            <property name="tokens" value="DOT"/>
+            <property name="option" value="nl"/>
+        </module>
+        <module name="SeparatorWrap">
+            <property name="tokens" value="COMMA"/>
+            <property name="option" value="EOL"/>
+        </module>
+        <module name="GenericWhitespace">
+            <message key="ws.followed"
+                     value="GenericWhitespace ''{0}'' is followed by whitespace."/>
+            <message key="ws.preceded"
+                     value="GenericWhitespace ''{0}'' is preceded with whitespace."/>
+            <message key="ws.illegalFollow"
+                     value="GenericWhitespace ''{0}'' should followed by whitespace."/>
+            <message key="ws.notPreceded"
+                     value="GenericWhitespace ''{0}'' is not preceded with whitespace."/>
+        </module>
+    </module>
+</module>
